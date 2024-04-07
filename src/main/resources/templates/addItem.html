@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add an item)</title>
+<style>
+	h1 {
+	color: red;
+	text-align: center;
+	}
+	
+	body{
+	background-color: lightblue;
+	text-align: center;
+	color: green;
+	}
+</style>
+</head>
+<body>
+	<h1> Add a new item! </h1>
+		<h3> Please fill the below form to add a new item: </h3>
+				<img src="/Java4.png" height="400" width="500" alt="Item image"> <br><br>
+				<form th:action="@{/addItem}" method="post" th:object="${item}">
+					
+				Item Name: <input type="text" th:field="*{itemName}"> <br><br>
+				Store Name: <input type="text" th:field="*{storeName}"> <br><br>
+				Price: <input type="number" th:field="*{price}" step="0.01"><br><br>
+				Size: <input type="number" th:field="*{size}" step="0.1"><br><br>
+				Brand: <input type="text" th:field="*{brand}"><br><br>
+				
+				<input type="submit" value="Submit"> <br><br>
+				<a href="/addStore"> Add more stores </a> <br><br>
+				<a href="/view"> View all stores and items added </a> <br><br>
+				<a href="/"> Go back to Home Page </a>
+		</form>
+</body>
+</html>

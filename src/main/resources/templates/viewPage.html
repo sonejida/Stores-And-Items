@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View all stores and items</title>
+<style>
+	h1 {
+	color: red;
+	
+	}
+	
+	body{
+	background-color: lightblue;
+	
+	color: green;
+	}
+	table{
+		text-align: center;
+	}
+	
+</style>
+</head>
+<body>
+	<h1> View your stores </h1>
+    <img src="/Java1.png" alt="Store image"><br><br>
+    	<table border="1">
+			<th> Store Id </th>
+			<th> Store name </th>
+			<th> Address </th>
+			<th> Email </th>
+			<th> Website </th>
+		</tr>
+		<br> <br>
+		<tr th:each="store : ${mystores}">
+		<td th:text="${store.storeId}"></td>
+			<td th:text="${store.StoreName}"></td>
+			<td th:text="${store.address}"></td>
+			<td th:text="${store.email}"></td>
+			<td th:text="${store.website}"></td>
+			<td><a th:href="@{/editStore/{id}(id=${store.storeId})}"> Edit </a></td>
+			<td><a th:href="@{/deleteStore/{id}(id=${store.storeId})}"> Delete </a></td>
+			
+		</tr>
+	</table>
+	<br>
+	
+	<h1> View your items </h1>
+    	<img src="/Java2.png" alt="Item image"><br><br>
+    	<table border="2">
+			<th> Item Id </th>
+			<th> Item name </th>
+			<th> Store name </th>
+			<th> Prize </th>
+			<th> Size </th>
+			<th> Brand </th>
+		</tr>
+		<br> <br>
+		<tr th:each="item : ${myitems}">
+		<td th:text="${item.itemId}"></td>
+		<td th:text="${item.ItemName}"></td>
+			<td th:text="${item.StoreName}"></td>
+			<td th:text="${item.price}"></td>
+			<td th:text="${item.size}"></td>
+			<td th:text="${item.brand}"></td>
+			<td><a th:href="@{/editItem/{id}(id=${item.itemId})}"> Edit </a></td>
+			<td><a th:href="@{/deleteItem/{id}(id=${item.itemId})}"> Delete </a></td>
+			
+		</tr>
+	</table>
+	<br>
+	<a href="/addItem"> Add an item </a> <br> <br>
+	<a href="/addStore"> Add a store </a> <br> <br>
+	<a href="/"> Go back to Home Page </a>
+</body>
+</html>

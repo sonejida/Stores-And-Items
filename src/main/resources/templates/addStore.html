@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add a store</title>
+<style>
+	h1 {
+	color: red;
+	text-align: center;
+	}
+	
+	body{
+	background-color: lightblue;
+	text-align: center;
+	color: green;
+	}
+</style>
+</head>
+<body>
+	<h1> Add a new store! </h1>
+		<h3> Please fill the below form to add a new item: </h3>
+			<img src="/Java3.png" height="400" width="500" alt="Store image"> <br><br>
+				<form th:action="@{/addStore}" method="post" th:object="${store}">
+					
+				Store Name: <input type="text" th:field="*{storeName}"> <br><br>
+				Address: <input type="text" th:field="*{address}"> <br><br>
+				Email: <input type="text" th:field="*{email}"> <br><br>
+				Website: <input type="text" th:field="*{website}"> <br><br>
+				<input type="submit" value="Submit"> <br><br>
+				<a href="/addItem"> Add more items </a> <br><br>
+				<a href="/view"> View all stores and items added </a> <br><br>
+				<a href="/"> Go back to Home Page </a>
+		</form>
+</body>
+</html>

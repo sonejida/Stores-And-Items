@@ -1,0 +1,16 @@
+CREATE TABLE stores (
+storeId INT PRIMARY KEY AUTO_INCREMENT,
+store_name VARCHAR(300),
+address VARCHAR(400),
+email VARCHAR(100),
+website VARCHAR(100)
+);
+
+CREATE TABLE items (
+itemId INT PRIMARY KEY AUTO_INCREMENT,
+item_name VARCHAR(300),
+store_name VARCHAR(300),
+price DOUBLE,
+size DOUBLE,
+brand VARCHAR(100)
+);
